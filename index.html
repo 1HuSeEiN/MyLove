@@ -28,8 +28,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 1; /* تأكيد ظهور القلوب فوق الخلفية */
+            pointer-events: none; /* يسمح بمرور الضغط للأزرار الخلفية */
+            z-index: 50; /* رفع الطبقة لتصبح فوق البطاقة */
             overflow: hidden;
         }
 
@@ -50,7 +50,7 @@
             top: -50px;
             animation-name: fall;
             animation-timing-function: linear;
-            z-index: 1;
+            z-index: 50;
         }
 
         @keyframes fall {
@@ -62,7 +62,7 @@
             backdrop-filter: blur(12px);
             border: 2px solid rgba(255, 255, 255, 0.6);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-            z-index: 10; /* البطاقة فوق القلوب */
+            z-index: 10; /* البطاقة تحت القلوب */
         }
 
         .pop-in {
@@ -272,12 +272,7 @@
             }, duration * 1000);
         }
 
-        // Ambient background: More frequent and varied
-        setInterval(() => {
-            const ambientItems = ['❤️', '🤎', '🌹', '🌸', '✨'];
-            const randomChar = ambientItems[Math.floor(Math.random() * ambientItems.length)];
-            createFloatingElement(randomChar);
-        }, 400); // Increased frequency
+        // Ambient background animation removed.
 
     </script>
 </body>
